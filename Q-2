@@ -1,0 +1,39 @@
+//Name: Harshpreet Singh
+//Roll no:2010991410
+//Set no: 03
+//Question no:2
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+void findPairOfSum(int n1[], int n, int t)
+{
+    sort(n1, n1 + n);
+    int small = 0;
+    int big = n - 1;
+
+    while (small < big)
+    {
+        if (n1[small] + n1[big] == t)
+        {
+            cout << "Pair found (" << n1[big] << "," << n1[small] <<")" <<endl;
+            return;
+        }
+ 
+        (n1[small] + n1[big] < t)? small++: big--;
+    }
+ 
+    cout << "Pair not found";
+}
+ 
+int main()
+{
+    int n1[] = { 8, 7, 2, 5, 3, 1 };
+    int t = 10;
+ 
+    int n = sizeof(n1)/sizeof(n1[0]);
+ 
+    findPairOfSum(n1, n, t);
+ 
+    return 0;
+}
